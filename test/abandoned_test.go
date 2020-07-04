@@ -2,7 +2,7 @@ package test
 
 import (
 	"testing"
-	"github.com/orus-io/json-schema-generate/test/abandoned_gen"
+	"github.com/bretep/json-schema-generate/test/abandoned_gen"
 )
 
 func TestAbandoned(t *testing.T) {

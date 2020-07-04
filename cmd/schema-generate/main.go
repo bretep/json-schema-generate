@@ -8,7 +8,7 @@ import (
 	"io"
 	"os"
 
-	generate "github.com/orus-io/json-schema-generate"
+	generate "github.com/bretep/json-schema-generate"
 )
 
 var (

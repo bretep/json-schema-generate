@@ -11,7 +11,7 @@ Generates Go (golang) Structs and Validation code from JSON schema.
 Install
 
 ```console
-$ go get -u github.com/orus-io/json-schema-generate/...
+$ go get -u github.com/bretep/json-schema-generate/...
 ```
 
 or

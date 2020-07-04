@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	jsoniter "github.com/json-iterator/go"
-	oneof "github.com/orus-io/json-schema-generate/test/oneof_gen"
+	oneof "github.com/bretep/json-schema-generate/test/oneof_gen"
 	"github.com/stretchr/testify/assert"
 )
 

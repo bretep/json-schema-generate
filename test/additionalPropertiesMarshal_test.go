@@ -2,7 +2,7 @@ package test
 
 import (
 	"testing"
-	gen "github.com/orus-io/json-schema-generate/test/additionalPropertiesMarshal_gen"
+	gen "github.com/bretep/json-schema-generate/test/additionalPropertiesMarshal_gen"
 	"encoding/json"
 	"reflect"
 )

@@ -1,4 +1,4 @@
-module github.com/orus-io/json-schema-generate
+module github.com/bretep/json-schema-generate
 
 go 1.13
 

@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	jsoniter "github.com/json-iterator/go"
-	emptytypes "github.com/orus-io/json-schema-generate/test/emptytypes_gen"
+	emptytypes "github.com/bretep/json-schema-generate/test/emptytypes_gen"
 	"github.com/stretchr/testify/assert"
 )
 
