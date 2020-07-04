@@ -324,7 +324,9 @@ func (g *Generator) processObject(name string, schema *Schema) (typ string, err 
 							if f.Required {
 								strct.GenerateCode = true
 							}
-							strct.Fields[f.Name] = f
+							if _, ok := strct.Fields[f.Name]; !ok {
+								strct.Fields[f.Name] = f
+							}
 						}
 
 					}
