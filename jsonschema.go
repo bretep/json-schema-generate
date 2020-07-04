@@ -42,6 +42,7 @@ type Schema struct {
 	// Properties, Required and AdditionalProperties describe an object's child instances.
 	// http://json-schema.org/draft-07/json-schema-validation.html#rfc.section.6.5
 	Properties map[string]*Schema
+
 	Required   []string
 
 	// "additionalProperties": {...}
@@ -49,6 +50,9 @@ type Schema struct {
 
 	// "additionalProperties": false
 	AdditionalPropertiesBool *bool `json:"-"`
+
+	// "dependencies": {...}
+	Dependencies map[string]*Schema
 
 	AnyOf []*Schema
 	AllOf []*Schema

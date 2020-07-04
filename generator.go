@@ -295,6 +295,44 @@ func (g *Generator) processObject(name string, schema *Schema) (typ string, err 
 		}
 		strct.Fields[f.Name] = f
 	}
+	// dependencies
+	if schema.Dependencies != nil {
+
+		for _, propSchema := range schema.Dependencies {
+
+			if propSchema.OneOf != nil {
+				for oneOfObject := range propSchema.OneOf {
+					if propSchema.OneOf[oneOfObject].Properties != nil {
+						for propKey, prop := range propSchema.OneOf[oneOfObject].Properties {
+							fieldName := getGolangName(propKey)
+							// calculate sub-schema name here, may not actually be used depending on type of schema!
+							subSchemaName := g.getSchemaName(fieldName, prop)
+							fieldType, err := g.processSchema(subSchemaName, prop)
+							if err != nil {
+								return "", err
+							}
+							f := Field{
+								Name:        fieldName,
+								JSONName:    propKey,
+								Type:        fieldType,
+								Required:    contains(schema.Required, propKey),
+								Description: prop.Description,
+							}
+							for _, v := range prop.Enum {
+								f.Enum = append(f.Enum, string(v))
+							}
+							if f.Required {
+								strct.GenerateCode = true
+							}
+							strct.Fields[f.Name] = f
+						}
+
+					}
+				}
+			}
+		}
+
+	}
 	// additionalProperties with typed sub-schema
 	if schema.AdditionalProperties != nil && schema.AdditionalProperties.AdditionalPropertiesBool == nil {
 		ap := (*Schema)(schema.AdditionalProperties)
